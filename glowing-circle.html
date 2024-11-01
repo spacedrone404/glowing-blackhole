@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing blackhole</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      background-color: black;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 150px;
+    }
+
+    #maskparent {
+      display: inline-flex;
+      justify-content: center;
+      margin: 10px;
+      background-repeat: no-repeat;
+      background-image: url("circle.svg");
+      border-radius: 50%;
+      animation: glowing 4s infinite alternate;
+      transform: scale(1);
+      transition: all 0.4s ease-in-out;
+
+    }
+
+    #maskparent:hover {
+      transform: scale(1.2);
+      transition: all 0.4s ease-in-out;
+
+    }
+
+    #mask {
+      border-radius: 50%;
+      backdrop-filter: blur(15px) saturate(8);
+
+    }
+
+    @keyframes glowing {
+      100% {
+        box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #af64ff,
+          0 0 70px #af64ff, 0 0 80px #af64ff;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="maskparent">
+      <img src="circle.svg" id="mask" alt="logo" />
+    </div>
+  </div>
+
+</body>
+
+</html>
